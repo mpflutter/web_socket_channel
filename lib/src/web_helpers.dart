@@ -3,6 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:web/helpers.dart';
+// ignore: implementation_imports
+import 'package:web/src/helpers/events/providers.dart';
 
 // TODO(kevmoo): remove when https://github.com/dart-lang/web/commit/4cb5811ed06
 // is in a published release and the min constraint on pkg:web is updated

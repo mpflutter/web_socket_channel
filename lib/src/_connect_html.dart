@@ -2,9 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'package:mpflutter_core/mpflutter_core.dart';
+
 import '../html.dart';
 
 import '../web_socket_channel.dart';
+import '../wechat.dart';
 
 /// Creates a new WebSocket connection.
 ///
@@ -12,5 +15,9 @@ import '../web_socket_channel.dart';
 /// communicate over the resulting socket.
 ///
 /// The optional [protocols] parameter is the same as `WebSocket.connect`.
-WebSocketChannel connect(Uri uri, {Iterable<String>? protocols}) =>
-    HtmlWebSocketChannel.connect(uri, protocols: protocols);
+WebSocketChannel connect(Uri uri, {Iterable<String>? protocols}) {
+  if (kIsMPFlutter && (kIsMPFlutterWechat || kIsMPFlutterWegame)) {
+    return WechatWebSocketChannel.connect(uri, protocols: protocols);
+  }
+  return HtmlWebSocketChannel.connect(uri, protocols: protocols);
+}

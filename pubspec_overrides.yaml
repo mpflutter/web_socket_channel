@@ -1,0 +1,6 @@
+# melos_managed_dependency_overrides: mpflutter_core,mpflutter_wechat_api
+dependency_overrides:
+  mpflutter_core:
+    path: ../mpflutter
+  mpflutter_wechat_api:
+    path: ../mpflutter_wechat_api
